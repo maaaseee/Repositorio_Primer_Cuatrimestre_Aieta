@@ -30,15 +30,15 @@ def sumar_4(un_numero, otro_numero):
 
     return suma
 
-def sumar_5(primer_numero, segundo_numero, tercer_numero = 0):
-    suma = primer_numero + segundo_numero + tercer_numero
+# def sumar_5(primer_numero, segundo_numero, tercer_numero = 0):
+#     suma = primer_numero + segundo_numero + tercer_numero
 
-    return suma
+#     return suma
 
-def resta(primer_numero:int, segundo_numero:int = 5):
-    return primer_numero - segundo_numero
+# def resta(primer_numero:int, segundo_numero:int = 5):
+#     return primer_numero - segundo_numero
 
-print(resta(primer_numero = int(input("Ingrese el número: "))))
+# print(resta(primer_numero = int(input("Ingrese el número: "))))
 
 
 # print("Bienvenidos al programa.")
