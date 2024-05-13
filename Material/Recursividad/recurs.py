@@ -1,4 +1,4 @@
-def calcular_factorial (numero) -> int:
+def calcular_factorial(numero) -> int:
     if numero == 0:
         resultado = 1
     else:
@@ -6,7 +6,7 @@ def calcular_factorial (numero) -> int:
     
     return resultado
 
-numero = 12
+numero = 5
 factorial = calcular_factorial(numero)
 
 print(f"El factorial del número {numero} es: {factorial}.")

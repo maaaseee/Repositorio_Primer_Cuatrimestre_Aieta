@@ -1,4 +1,4 @@
-from validate import validate_int_number
+from Package_folder.validate import validate_int_number
 
 def get_int(mensaje: str) -> int|None:
     # Se solicita la clave bancaria del usuario
@@ -9,13 +9,9 @@ def get_int(mensaje: str) -> int|None:
     numero = input(mensaje)
     numero = int(numero)
 
-    validacion = validate_int_number("ERROR. Ingrese nuevamente su numero: ", 1000, 9999, 3, numero)
+    validacion = validate_int_number("ERROR. Ingrese nuevamente su numero: ", -1000, 1000, 3, numero)
 
     return validacion
-
-clave_bancaria = get_int("Ingrese su numero: ")
-
-print(f"La clave bancaria ingresada es: ({clave_bancaria})")
 
 # def get_float(mensaje: str, mensaje_error: str, minimo: float, maximo: float, reintentos: int) -> float|None:
 #     # Se solicita la altura del usuario

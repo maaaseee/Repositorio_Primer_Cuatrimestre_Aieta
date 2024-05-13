@@ -1,7 +1,7 @@
-def validate_int_number(mensaje_error: str, minimo: int, maximo: int, reintentos: int, numero: int) -> int|float|None:
+def validate_int_number(mensaje_error: str, minimo: int, maximo: int, reintentos: int, numero: float) -> int|float|None:
     if numero > minimo and numero < maximo:
         resultado = numero
-        
+    
     else:
         for i in range(0, reintentos):
             resultado = None
@@ -15,7 +15,7 @@ def validate_int_number(mensaje_error: str, minimo: int, maximo: int, reintentos
 
     return resultado
 
-def validate_float_number(mensaje_error: str, minimo: float, maximo: float, reintentos: int, numero: float) -> float|None:
+def validate_float_number(mensaje_error: str, minimo: float, maximo: float, reintentos: int) -> float|None:
     if numero > minimo and numero < maximo:
         resultado = numero
     
