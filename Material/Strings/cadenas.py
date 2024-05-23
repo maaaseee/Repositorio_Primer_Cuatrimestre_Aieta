@@ -119,14 +119,17 @@ reset = "\033[0m"
 
 # cadena = cadena.capitalize() # Marcela bu
 # print(f"{rojo}{cadena}{reset}")
+
 # cadena = cadena.title() # Marcela Bu
 # print(f"{rojo}{cadena}{reset}")
+
 # cadena = cadena.replace("Bu", "!!") # Marcela !!
 # print(f"{rojo}{cadena}{reset}")
 
-# cadena = "Python,Java,C+,C#"
-# cadena = cadena.split(",")
-# print(f"{rojo}{cadena}{reset}")
+cadena = "L-Gante | Sesión #38"
+cadena = cadena.split("#")
+cadena = cadena[0].strip(("| Sesión "))
+print(f"{rojo}{cadena}{reset}")
 
 # delimitador = ","
 # lista = ["Java", "Python", "C#", "C"]
@@ -150,14 +153,14 @@ reset = "\033[0m"
 # cadena = "hola mundo123"
 # print(cadena.isalnum())  #False
 
-cadena = "hola mundo hola mundo hola mundo"
-cantidad = cadena.count("la")
-print(f"{rojo}{cantidad}{reset}")
+# cadena = "hola mundo hola mundo hola mundo"
+# cantidad = cadena.count("la")
+# print(f"{rojo}{cantidad}{reset}")
 
-indice = cadena.find("mundo")
-print(indice)
+# indice = cadena.find("mundo")
+# print(indice)
 
-indice = cadena.find("mundo", 10)
-print(indice)
+# indice = cadena.find("mundo", 10)
+# print(indice)
 
-print("*" * 30)
+# print("*" * 30)
