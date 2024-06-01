@@ -113,8 +113,8 @@
 ################################################################################################
 
 # cadena = "MARCELA BU"
-rojo = "\033[31m"
-reset = "\033[0m"
+# rojo = "\033[31m"
+# reset = "\033[0m"
 # print(f"{rojo}{cadena}{reset}")
 
 # cadena = cadena.capitalize() # Marcela bu
@@ -126,10 +126,13 @@ reset = "\033[0m"
 # cadena = cadena.replace("Bu", "!!") # Marcela !!
 # print(f"{rojo}{cadena}{reset}")
 
-cadena = "L-Gante | Sesión #38"
-cadena = cadena.split("#")
-cadena = cadena[0].strip(("| Sesión "))
-print(f"{rojo}{cadena}{reset}")
+# cadena = "L-Gante | Sesión #38"
+# cadena = cadena.split("#")
+# cadena = cadena[0].strip(("| Sesión "))
+# (print(f"{rojo}El dato ingresado contiene caracteres no permitidos.\n"
+#       "Por favor, ingrese los datos sin números, ni caracteres especiales (!, @, °, etc)"
+#       f"{reset}")
+
 
 # delimitador = ","
 # lista = ["Java", "Python", "C#", "C"]
@@ -164,3 +167,5 @@ print(f"{rojo}{cadena}{reset}")
 # print(indice)
 
 # print("*" * 30)
+
+print("Apellido".capitalize())

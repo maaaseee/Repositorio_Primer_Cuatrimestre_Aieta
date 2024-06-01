@@ -22,3 +22,70 @@ lista_videos = [
     Video("Sech | Sesión #41", 95000000, 210, "https://www.youtube.com/watch?v=sech41", "2021-08-15"),
     Video("Arcángel | Sesión #42", 110000000, 225, "https://www.youtube.com/watch?v=arcangel42", "2021-09-01")
 ]
+from funciones_decorativas import mensaje_programa
+
+def menu():
+    flag_1 = False
+    continuar = True
+    while continuar:
+        mensaje_programa(1)
+        inicio = input("Ingrese una opcion : A, B, C, D, E, F, G, H, X: ")
+        inicio = inicio.upper()
+
+        if inicio == "A":
+            # A. NORMALIZAR OBJETOS
+            if flag_1 == False:
+                for i in range(len(lista_videos)):
+                    lista_videos[i].dividir_titulo()
+                    lista_videos[i].obtener_codigo_url()
+                    lista_videos[i].formatear_fecha()
+        
+                if type(lista_videos) == list: 
+                    flag_1 = True
+                    mensaje_programa(4)
+            else:
+                mensaje_programa(5)    
+
+        elif inicio == "B" and flag_1 == True:
+            #B. MOSTRAR TEMAS
+            print(f"{"*" * 60}")
+            for x in range(len(lista_videos)):
+                lista_videos[x].mostrar_tema()
+
+        elif inicio == "C" and flag_1 == True:
+            # C. ORDENAR TEMAS
+            Video.ordenar_temas(lista_videos)
+            print(f"{"*" * 60}")
+            for x in range(len(lista_videos)):
+                lista_videos[x].mostrar_tema()
+            pass
+
+        elif inicio == "D" and flag_1 == True:
+            # D. PROMEDIO DE VISTAS
+            Video.promediar_visitas(lista_videos)
+    
+        elif inicio == "E" and flag_1 == True:
+            # MAXIMA REPRODUCCION: mostrar el o los videos con mayor cantidad de vistas.
+            Video.calcular_maximo_reproducciones(lista_videos)
+    
+        elif inicio == "F" and flag_1 == True:
+            # BUSQUEDA POR CODIGO: mostrar los videos cuyo código comiencen con la palabra "nick"
+            Video.buscar_codigo_url(lista_videos,"nick")
+    
+        elif inicio == "G" and flag_1 == True:
+            # LISTAR POR COLABORADOR: el usuario ingresa el nombre de un colaborador y el programa deberá listar todos los videos de
+            colaborador = input("Ingrese nombre de colaborador: ") 
+            colaborador = colaborador.strip()
+            Video.buscar_colaborador(lista_videos, colaborador)
+        
+        elif inicio == "H":
+            # H. LISTAR POR MES: el usuario ingresa un mes, y se deberán listar todos los temas lanzados en ese mes (sin importar el año)
+            mes = input("Ingrese el mes en numeros: \n")
+            print(f"{"*" * 60}")
+            mes = mes.strip()
+            Video.buscar_por_mes(lista_videos,mes)
+
+        elif inicio == "X":
+            # Cerrar programa(salir)
+            mensaje_programa(3)
+            continuar = False

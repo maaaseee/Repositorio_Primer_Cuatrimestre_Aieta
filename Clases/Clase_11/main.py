@@ -24,29 +24,6 @@ parametros necesarios para lograr el objetivo y mantener independencia de códig
 """
 from data import lista_videos
 from class_video import Video
+from data import menu
 
-# A) NORMALIZAR OBJETOS
-for i in range(len(lista_videos)):
-    cadena_1 = lista_videos[i].dividir_titulo()
-
-    cadena_2 = lista_videos[i].obtener_codigo_url()
-
-    cadena_3 = lista_videos[i].formatear_fecha()
-
-# # C) ORDENAR TEMAS
-# Video.ordenar_temas(lista_videos)
-
-# # D) PROMEDIO DE VISITAS
-# Video.promediar_visitas(lista_videos)
-# for x in range(len(lista_videos)):
-#     # B) MOSTRAR TEMAS
-#     mamachela = lista_videos[x].mostrar_tema()
-
-# # E) MAXIMA REPRODUCCION
-# print(Video.calcular_maximo_reproducciones(lista_videos))
-
-# F) BUSQUEDA POR CODIGO
-# Video.buscar_codigo_url(lista_videos)
-
-# G) LISTAR POR COLABORADOR
-Video.buscar_colaborador(lista_videos, "Trueno")
+menu = menu()

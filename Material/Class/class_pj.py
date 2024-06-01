@@ -46,3 +46,5 @@ class Personaje:
             print("Empate")
             enemigo.pelea *= 0.9
             self.pelea *= 0.9
+
+    # @staticmethod = Metodo sin self / Metodo que no depende de la instancia

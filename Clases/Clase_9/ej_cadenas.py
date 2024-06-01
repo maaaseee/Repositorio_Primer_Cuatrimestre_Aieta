@@ -148,22 +148,22 @@ Crear una función que reciba una cadena por parámetro y suprima las vocales de
 Crear una función para contar cuántas veces aparece una subcadena dentro de una cadena.
 '''
 
-# def contar_subcadenas(cadena: str, cadena_vacia: str) -> int:
-#     cadena_vacia = ""
-#     contador = 0
-#     cadena = quitar_espacios(cadena, cadena_vacia)
-#     subcadena = input("Ingrese la subcadena acá: ")
-#     longitud_subcadena = len(subcadena)
+def contar_subcadenas(cadena: str, cadena_vacia: str) -> int:
+    cadena_vacia = ""
+    contador = 0
+    cadena = quitar_espacios(cadena, cadena_vacia)
+    subcadena = input("Ingrese la subcadena acá: ")
+    longitud_subcadena = len(subcadena)
 
-#     for i in range(len(cadena)):
-#         if cadena[i:i + longitud_subcadena] == subcadena:
-#             contador += 1
+    for i in range(len(cadena)):
+        if cadena[i:i + longitud_subcadena] == subcadena:
+            contador += 1
 
-#     return contador
+    return contador
 
-# subcadenas = contar_subcadenas(cadena)
+subcadenas = contar_subcadenas(cadena)
 
-# print(subcadenas)
+print(subcadenas)
 
 '''
 CSI UTN
