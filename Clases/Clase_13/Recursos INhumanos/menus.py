@@ -13,8 +13,8 @@ def mostrar_opciones():
     
     return opcion
 
-def clear_and_wait():
-    time.sleep(5)
+def clear_and_wait(tiempo: int):
+    time.sleep(tiempo)
     system("cls")
 
 def ask_and_clear():
