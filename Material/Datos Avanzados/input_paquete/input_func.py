@@ -72,7 +72,8 @@ def get_string(mensaje: str, minimo: int, maximo: int, alerta: str, reintentos: 
 def get_string_excluyente(mensaje: str, minimo: int, maximo: int, lista: list, alerta: str, reintentos: int) -> str|None:
     for _ in range(reintentos + 1):
         texto = input(mensaje).strip()
-        textito = texto.capitalize()
+        textito = texto.title()
+
 
         if validate_length(minimo, maximo, textito):
             if validate_trabajos(textito, lista):

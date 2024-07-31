@@ -3,7 +3,7 @@ import time
 from os import system
 
 def mostrar_opciones():
-    opcion = get_int("Menú\n"
+    opcion = get_int("¡Bienvenido a Recursos INHumanos!\n"
                     "1. Ingresar empleado\n"
                     "2. Modificar empleado\n"
                     "3. Eliminar empleado\n"
@@ -11,9 +11,11 @@ def mostrar_opciones():
                     "5. Calcular salario promedio\n"
                     "6. Buscar empleado por DNI\n"
                     "7. Ordenar empleados\n"
-                    "8. Salir del menú\n"
+                    "8. Generar reporte de coincidencias según salarios\n"
+                    "9. Generar reporte  de coincidencias segun apellido\n"
+                    "10. Salir del menú\n"
                     "Ingrese la opción que desea realizar: ",
-                    "\nEsa opción no existe. Por favor, vuelva a ingresarla.\n", 1, 8,
+                    "\nEsa opción no existe. Por favor, vuelva a ingresarla.\n" , 1, 10,
                     "\nLa opción no ha podido ser cargada.\n", 2)
     
     return opcion
@@ -23,7 +25,7 @@ def clear_and_wait(tiempo: int):
     system("cls")
 
 def ask_and_clear():
-    input("Presione ENTER para continuar...")
+    system("pause")
     system("cls")
 
 def enviar_mensaje_error(error: int):
@@ -42,3 +44,5 @@ def enviar_mensaje_error(error: int):
         case 6:
             print("\nNo se ha indicado si se desea realizar la modificacion"
                 " Volviendo al menú...\n")
+        case 7:
+            print("No se pudo generar el reporte. Volviendo al menú...")

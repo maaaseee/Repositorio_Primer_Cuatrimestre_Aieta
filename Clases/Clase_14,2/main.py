@@ -1,32 +1,33 @@
-from empleados import *
+from empleado import *
 from os import system
 from menus import *
 
 bandera = True
 
-lista_empleados = [
-{'ID': 1, 'Nombre':'Juan', 'Apellido': 'Aerez', 'DNI': 12345678, 'Puesto': 'Ingeniero', 'Salario': 50000.0},
-{'ID': 2, 'Nombre':'Maria', 'Apellido': 'Aomez', 'DNI': 87654321, 'Puesto': 'Analista', 'Salario': 45000.0},
-{'ID': 3, 'Nombre':'Carlos', 'Apellido': 'Sanchez', 'DNI': 23456789, 'Puesto': 'Gerente', 'Salario': 70000.0},
-{'ID': 4, 'Nombre':'Ana', 'Apellido': 'Lopez', 'DNI': 98765432, 'Puesto': 'Desarrollador', 'Salario': 55000.0},
-{'ID': 19, 'Nombre':'Luis', 'Apellido': 'Martinez', 'DNI': 34567890, 'Puesto': 'Diseñador', 'Salario': 40000.0}
-]
-lista_despedidos = [
-{'ID': 20, 'Nombre':'Federico', 'Apellido': 'Aieta', 'DNI': 34576890, 'Puesto': 'Diseñador', 'Salario': 45000.0}
-]
+extraccion = extract_config_json("config.json")
+config = extraccion[0]
 
-system("cls")
+lista_empleados = []
+lista_despedidos = []
+
+parser_csv("empleados.csv", lista_empleados)
+
+last_id = get_last_id(lista_empleados)
+bajas = config["bajas"]
+reportes_salario = config["reportes_salario"]
+reportes_apellido = config["reportes_apellido"]
+
+# system("cls")
 while bandera:
     opcion = mostrar_opciones()
-    a = max_value_id(lista_empleados)
-    b = max_value_id(lista_despedidos)
-    id_mx = last_id(a, b)
     if opcion == 1:
-        if len(lista_empleados) < 20:
-            ingresar = ingresar_empleado_lista(lista_empleados, id_mx)
-            if ingresar == False:
+        if len(lista_empleados) < 120:
+            ingresar = ingresar_empleado_lista(lista_empleados, last_id)
+            if ingresar == None:
                 enviar_mensaje_error(1)
-            clear_and_wait(5)
+            else:
+                last_id = ingresar
+            ask_and_clear()
 
         else:
             print("\nLa lista de empleados está llena.\n")
@@ -37,7 +38,7 @@ while bandera:
             modificacion = modificar_empleado(lista_empleados)
             if modificacion == False:
                 enviar_mensaje_error(1)
-            clear_and_wait(5)
+            ask_and_clear()
         
         else:
             enviar_mensaje_error(2)
@@ -45,8 +46,12 @@ while bandera:
 
     elif opcion == 3:
         if len(lista_empleados) > 0:
-            eliminar_empleado(lista_empleados, lista_despedidos, "ID")
-            clear_and_wait(5)
+            despedido = eliminar_empleado(lista_empleados, "ID", bajas + 1, lista_despedidos)
+            if despedido == False:
+                enviar_mensaje_error(1)
+            else:
+                bajas = despedido
+            ask_and_clear()
         
         else:
             enviar_mensaje_error(2)
@@ -73,7 +78,7 @@ while bandera:
 
     elif opcion == 6:
         if len(lista_empleados) > 0:
-            buscar_empleado_por_dni(lista_empleados)
+            buscar_por_dni(lista_empleados)
             ask_and_clear()
         
         else:
@@ -82,7 +87,8 @@ while bandera:
 
     elif opcion == 7:
         if len(lista_empleados) > 1:
-            ordenar_lista_empleados(lista_empleados)
+            ordenar_lista(lista_empleados)
+            ask_and_clear()
         elif len(lista_empleados) == 1:
             print("\nSolo hay un empleado en la lista. No es necesario ordenarlos.\n")
             clear_and_wait(5)
@@ -91,27 +97,63 @@ while bandera:
             clear_and_wait(5)
 
     elif opcion == 8:
-        eleccion_empleado = input("Ingrese SI/NO si desea "
-                                "cambiar el dato del empleado:\n").upper()
+        if len(lista_empleados) > 0:
+            reporte = generar_reporte_salario(lista_empleados, "Salario")
+            if reporte == False:
+                enviar_mensaje_error(7)
+                clear_and_wait(5)
+            else:
+                reportes_salario = reporte
+        else:
+            enviar_mensaje_error(2)
+            clear_and_wait(5)
+
+    elif opcion == 9:
+        if len(lista_empleados) > 0:
+            reporte = generar_reporte_salario(lista_empleados, "Apellido")
+            if reporte == False:
+                enviar_mensaje_error(7)
+                clear_and_wait(5)
+            else:
+                reportes_apeliido = reporte
+        else:
+            enviar_mensaje_error(2)
+            clear_and_wait(5)
+
+    elif opcion == 10:
+        eleccion_empleado = input("Ingrese SI/NO si desea salir:\n").upper()
         if eleccion_empleado == "SI":
             bandera = False
             print("\nSaliendo del programa...")
             clear_and_wait(3)
         
         elif eleccion_empleado == "NO":
+            system("pause")
             system("cls")
         
         else:
             for _ in range(2):
-                eleccion_empleado = input("Ingrese SI/NO si desea "
-                                            "cambiar el dato del empleado:\n").upper()
+                eleccion_empleado = input("Ingrese SI/NO si desea salir:\n").upper()
                 if eleccion_empleado == "SI":
                     bandera = False
                     print("\nSaliendo del programa...")
                     clear_and_wait(3)
                 elif eleccion_empleado == "NO":
+                    system("pause")
                     system("cls")
+
+    elif opcion == None:
+        system("pause")
+        system("cls")
 
     else:
         system("pause")
         system("cls")
+
+overwrite_csv("empleados.csv", lista_empleados)
+
+config = {"last_id": last_id, "bajas": bajas, "reportes_salario": reportes_salario, "reportes_apellido": reportes_apellido}
+
+overwrite_json("config.json", config)
+
+# create_bajas_json("bajas.json", lista_despedidos)
