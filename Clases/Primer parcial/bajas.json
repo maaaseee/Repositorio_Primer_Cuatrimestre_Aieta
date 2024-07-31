@@ -1,0 +1,14 @@
+{
+    "bajas": [
+        {
+            "ID": 197,
+            "Nombre": "Anselmo",
+            "Apellido": "Brazener",
+            "DNI": "46038756",
+            "Grupo sanguineo": "AB-",
+            "Edad": 100,
+            "Altura": 189,
+            "Peso": 97.25
+        }
+    ]
+}

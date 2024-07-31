@@ -1,0 +1,8 @@
+Reporte N°:0001
+Fecha: 10-06-2024
+Cantidad de coincidencias: 3
+ID   Nombre               Apellido             DNI          Grupo sanguineo   Edad     Altura   Peso       
+------------------------------------------------------------------------------------------------------------
+93  |Abigale             |Rowatt               |24541644   |B+               |1       |81    cm|242.90   kg|
+102 |Addison             |Tremaine             |34441508   |AB+              |83      |60    cm|99.09    kg|
+110 |Alaster             |Gaveltone            |29945765   |A+               |61      |106   cm|278.96   kg|
